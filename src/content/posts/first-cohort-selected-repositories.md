@@ -13,7 +13,6 @@ Since [introducing OpenNG](/blog/openng-foundation-announcement), we have been w
 - [ngneat/cashew](https://github.com/ngneat/cashew), HTTP caching for Angular applications
 - [ngneat/spectator](https://github.com/ngneat/spectator), a testing library that simplifies Angular component tests
 - [ngneat/query](https://github.com/ngneat/query), TanStack Query bindings for Angular
-- [ngneat/falso](https://github.com/ngneat/falso), realistic fake data generation for tests and development
 - [ngneat/elf](https://github.com/ngneat/elf), a reactive, immutable state management library
 - [ngneat/until-destroy](https://github.com/ngneat/until-destroy), automatic subscription cleanup for Angular components
 

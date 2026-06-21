@@ -106,7 +106,7 @@ export const routeMeta: RouteMeta = {
 
         <ul class="timeline timeline-vertical mt-12 w-full">
           <li>
-            <div class="timeline-start timeline-box mb-10 w-full">
+            <div class="timeline-start timeline-box mb-10 w-full text-base">
               <h3 class="font-semibold">Foundation and first cohort</h3>
               <p class="py-2 text-base-content/70">
                 Launch this site with our mission, set up GitHub Discussions,
@@ -138,7 +138,7 @@ export const routeMeta: RouteMeta = {
           </li>
           <li>
             <hr />
-            <div class="timeline-end timeline-box mb-10 w-full">
+            <div class="timeline-end timeline-box mb-10 w-full text-base">
               <h3 class="font-semibold">Beyond the first cohort</h3>
               <p class="py-2 text-base-content/70">
                 Keep evaluating other abandoned Angular libraries that the
@@ -163,7 +163,7 @@ export const routeMeta: RouteMeta = {
           </li>
           <li>
             <hr />
-            <div class="timeline-start timeline-box mb-10 w-full">
+            <div class="timeline-start timeline-box mb-10 w-full text-base">
               <h3 class="font-semibold">Help the wider ecosystem</h3>
               <p class="py-2 text-base-content/70">
                 Identify ways to help the wider Angular open-source ecosystem.
@@ -201,7 +201,7 @@ export const routeMeta: RouteMeta = {
                 />
               </svg>
             </div>
-            <div class="timeline-end timeline-box w-full">
+            <div class="timeline-end timeline-box w-full text-base">
               <h3 class="font-semibold">Sponsorship</h3>
               <p class="py-2 text-base-content/70">
                 Find sponsors to fund maintenance work and governance costs.

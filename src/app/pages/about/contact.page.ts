@@ -49,7 +49,7 @@ export const routeMeta: RouteMeta = {
         <div class="card bg-base-100 shadow-sm">
           <div class="card-body gap-3">
             <h2 class="card-title text-lg">Contribute or maintain</h2>
-            <p class="text-base-content/70">
+            <p class="text-base-content/70 text-base">
               Interested in helping revive abandoned Angular tooling or stepping
               up as a maintainer? We welcome both experienced contributors and
               newcomers, depending on the project.
@@ -65,7 +65,7 @@ export const routeMeta: RouteMeta = {
         <div class="card bg-base-100 shadow-sm">
           <div class="card-body gap-3">
             <h2 class="card-title text-lg">Suggest a project</h2>
-            <p class="text-base-content/70">
+            <p class="text-base-content/70 text-base">
               Know an unmaintained Angular library the community relies on?
               Share it with us with a new GitHub discussion.
             </p>
@@ -81,7 +81,7 @@ export const routeMeta: RouteMeta = {
       <div class="card bg-base-100 shadow-sm">
         <div class="card-body gap-4">
           <h2 class="card-title text-xl">Stay updated</h2>
-          <p class="text-base-content/70">
+          <p class="text-base-content/70 text-base">
             Our launch announcement explains why the foundation exists, what we
             are not trying to do, and what comes first.
           </p>

@@ -62,7 +62,7 @@ export const routeMeta: RouteMeta = {
       <div class="grid gap-6">
         @for (project of firstCohort; track project.repo) {
           <div class="card bg-base-100 shadow-sm">
-            <div class="card-body gap-4">
+            <div class="card-body gap-4 text-base">
                 <h2 class="card-title text-xl">{{ project.name }}</h2>
               <p class="text-base-content/70">{{ project.description }}</p>
               <div class="card-actions">
@@ -124,12 +124,6 @@ export default class ProjectsPage {
       name: 'Query',
       repo: 'ngneat/query',
       description: 'TanStack Query bindings for Angular.',
-    },
-    {
-      name: 'Falso',
-      repo: 'ngneat/falso',
-      description:
-        'Realistic fake data generation for tests and development.',
     },
     {
       name: 'Elf',

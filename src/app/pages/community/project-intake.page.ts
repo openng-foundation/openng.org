@@ -88,7 +88,7 @@ export const routeMeta: RouteMeta = {
           <li class="step step-neutral">
             <div class="space-y-2 text-left">
               <div class="font-semibold">Contact the creator</div>
-              <p class="text-sm text-base-content/70 leading-6">
+              <p class="text-base-content/70 leading-6 text-base">
                 For public repositories, we open a GitHub issue to explain
                 our intent and ask for permission to revive the project under
                 OpenNG. For private or deleted projects, we look for other
@@ -99,7 +99,7 @@ export const routeMeta: RouteMeta = {
           <li class="step step-neutral">
             <div class="space-y-2 text-left">
               <div class="font-semibold">Find maintainers</div>
-              <p class="text-sm text-base-content/70 leading-6">
+              <p class="text-base-content/70 leading-6 text-base">
                 We first contact previous active maintainers and contributors
                 to propose joining the revived project. If they decline or are
                 unavailable, we open maintainer positions to the wider
@@ -110,7 +110,7 @@ export const routeMeta: RouteMeta = {
           <li class="step step-neutral">
             <div class="space-y-2 text-left">
               <div class="font-semibold">Onboard and revive</div>
-              <p class="text-sm text-base-content/70 leading-6">
+              <p class="text-base-content/70 leading-6 text-base">
                 With agreement from the original maintainer and a maintainer in
                 place, the project moves under OpenNG governance and follows
                 our

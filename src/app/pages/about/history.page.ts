@@ -54,7 +54,7 @@ export const routeMeta: RouteMeta = {
               />
             </svg>
           </div>
-          <div class="timeline-end timeline-box mb-10">
+          <div class="timeline-end timeline-box mb-10 text-base">
             <h2 class="font-semibold">Foundation created</h2>
             <p class="py-2 text-base-content/80">
               A group of Angular community members launched the OpenNG Foundation
@@ -89,11 +89,11 @@ export const routeMeta: RouteMeta = {
               />
             </svg>
           </div>
-          <div class="timeline-end timeline-box mb-10">
+          <div class="timeline-end timeline-box mb-10 text-base">
             <h2 class="font-semibold">First cohort selected</h2>
             <p class="py-2 text-base-content/80">
               OpenNG announced the first cohort of six ngneat libraries selected
-              to maintain, cashew, spectator, query, falso, elf, and
+              to maintain, cashew, spectator, query, elf, and
               until-destroy, and began the work of finding maintainers for
               each.
             </p>

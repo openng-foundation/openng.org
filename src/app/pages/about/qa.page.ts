@@ -55,7 +55,7 @@ export default class QaPage {
     {
       question: 'What is OpenNG working on first?',
       answer:
-        'Our immediate focus is this website, GitHub Discussions, and maintaining the first cohort of six ngneat libraries, cashew, spectator, query, falso, elf, and until-destroy. See the first cohort announcement for how we selected them. After that cohort is on stable footing, we will evaluate other abandoned projects, then expand to helping the wider ecosystem find contributors and maintainers.',
+        'Our immediate focus is this website, GitHub Discussions, and maintaining the first cohort of six ngneat libraries, cashew, spectator, query, elf, and until-destroy. See the first cohort announcement for how we selected them. After that cohort is on stable footing, we will evaluate other abandoned projects, then expand to helping the wider ecosystem find contributors and maintainers.',
     },
     {
       question: 'How do people become maintainers?',
