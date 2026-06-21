@@ -15,7 +15,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
       <div class="drawer-content">
         <header class="bg-base-100">
           <nav class="navbar mx-auto max-w-7xl px-4 lg:px-8">
-            <div class="navbar-start gap-2">
+            <div class="navbar-start gap-2 max-lg:w-auto max-lg:flex-1">
               <label
                 for="mobile-nav-drawer"
                 class="btn btn-ghost btn-square drawer-button lg:hidden"
@@ -37,7 +37,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
               </label>
               <a
                 routerLink="/"
-                class="flex items-center gap-2 font-montserrat text-xl font-bold"
+                class="flex items-center gap-2 font-montserrat text-lg font-bold whitespace-nowrap sm:text-xl"
               >
                 <img
                   src="/favicon.svg"
@@ -114,7 +114,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
               </ul>
             </div>
 
-            <div class="navbar-end"></div>
+            <div class="navbar-end hidden lg:inline-flex"></div>
           </nav>
         </header>
 
