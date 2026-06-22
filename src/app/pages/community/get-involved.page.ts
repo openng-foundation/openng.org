@@ -101,7 +101,15 @@ export const routeMeta: RouteMeta = {
       </div>
 
       <div class="flex flex-wrap gap-3">
-        <a class="btn btn-sm" routerLink="/projects">View projects</a>
+        <a
+          class="btn btn-sm"
+          href="https://github.com/openng-foundation"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          OpenNG on GitHub
+        </a>
+        <a class="btn btn-sm btn-ghost" routerLink="/projects">View projects</a>
         <a class="btn btn-sm btn-ghost" routerLink="/community/standards">
           Our standards
         </a>

@@ -22,6 +22,15 @@ export const routeMeta: RouteMeta = {
           <h1 class="text-4xl font-bold">Projects</h1>
           <p class="py-4 text-base-content/70">
             Libraries we are reviving and maintaining for the Angular community.
+            All Foundation repositories live on
+            <a
+              class="link link-primary"
+              href="https://github.com/openng-foundation"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>.
           </p>
         </div>
       </div>
@@ -65,6 +74,7 @@ export const routeMeta: RouteMeta = {
             <div class="card-body gap-4 text-base">
                 <h2 class="card-title text-xl">{{ project.name }}</h2>
               <p class="text-base-content/70">{{ project.description }}</p>
+              <!--
               <div class="card-actions">
                 <a
                   class="btn btn-sm"
@@ -75,6 +85,7 @@ export const routeMeta: RouteMeta = {
                   View on GitHub
                 </a>
               </div>
+        -->
             </div>
           </div>
         }
@@ -97,7 +108,15 @@ export const routeMeta: RouteMeta = {
       </div>
 
       <div class="flex flex-wrap gap-3">
-        <a class="btn btn-sm" routerLink="/community/get-involved">
+        <a
+          class="btn btn-sm"
+          href="https://github.com/openng-foundation"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          OpenNG on GitHub
+        </a>
+        <a class="btn btn-sm btn-ghost" routerLink="/community/get-involved">
           Get involved
         </a>
         <a class="btn btn-sm btn-ghost" routerLink="/about/governance">
