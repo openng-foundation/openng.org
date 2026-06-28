@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
 
 export const routeMeta: RouteMeta = {
   title: 'Projects',
@@ -14,7 +15,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, HlmButtonImports],
   template: `
     <div class="hero bg-base-200">
       <div class="hero-content py-12 text-center">
@@ -77,7 +78,8 @@ export const routeMeta: RouteMeta = {
               <!--
               <div class="card-actions">
                 <a
-                  class="btn btn-sm"
+                  hlmBtn
+                  size="sm"
                   [href]="'https://github.com/' + project.repo"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -109,17 +111,18 @@ export const routeMeta: RouteMeta = {
 
       <div class="flex flex-wrap gap-3">
         <a
-          class="btn btn-sm"
+          hlmBtn
+          size="sm"
           href="https://github.com/openng-foundation"
           target="_blank"
           rel="noopener noreferrer"
         >
           OpenNG on GitHub
         </a>
-        <a class="btn btn-sm btn-ghost" routerLink="/community/get-involved">
+        <a hlmBtn variant="ghost" size="sm" routerLink="/community/get-involved">
           Get involved
         </a>
-        <a class="btn btn-sm btn-ghost" routerLink="/about/governance">
+        <a hlmBtn variant="ghost" size="sm" routerLink="/about/governance">
           How we govern
         </a>
       </div>

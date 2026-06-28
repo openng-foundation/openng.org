@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
 
 export const routeMeta: RouteMeta = {
   title: 'About',
@@ -14,7 +15,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, HlmButtonImports],
   template: `
     <div class="hero bg-base-200">
       <div class="hero-content py-12 text-center">
@@ -109,13 +110,16 @@ export const routeMeta: RouteMeta = {
           </p>
           <div class="card-actions">
             <a
-              class="btn btn-sm"
+              hlmBtn
+              size="sm"
               routerLink="/blog/openng-foundation-announcement"
             >
               Introducing the OpenNG Foundation
             </a>
             <a
-              class="btn btn-sm btn-ghost"
+              hlmBtn
+              variant="ghost"
+              size="sm"
               routerLink="/blog/first-cohort-selected-repositories"
             >
               First cohort announcement

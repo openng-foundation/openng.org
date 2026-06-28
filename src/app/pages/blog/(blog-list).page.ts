@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
 
 import { injectBlogPosts } from '../../blog/post-attributes';
 
@@ -17,7 +18,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  imports: [DatePipe, RouterLink],
+  imports: [DatePipe, RouterLink, HlmButtonImports],
   template: `
     <div class="hero bg-base-200">
       <div class="hero-content py-12 text-center">
@@ -51,7 +52,8 @@ export const routeMeta: RouteMeta = {
               </p>
               <div class="card-actions justify-end">
                 <a
-                  class="btn btn-sm"
+                  hlmBtn
+                  size="sm"
                   [routerLink]="['/blog', post.attributes.slug]"
                 >
                   Read more

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
 
 export const routeMeta: RouteMeta = {
   title: 'Project Intake',
@@ -14,7 +15,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, HlmButtonImports],
   template: `
     <div class="hero bg-base-200">
       <div class="hero-content py-12 text-center">
@@ -134,10 +135,10 @@ export const routeMeta: RouteMeta = {
       </div>
 
       <div class="flex flex-wrap gap-3">
-        <a class="btn btn-sm" routerLink="/community/maintainer-candidates">
+        <a hlmBtn size="sm" routerLink="/community/maintainer-candidates">
           Become a maintainer
         </a>
-        <a class="btn btn-sm btn-ghost" routerLink="/projects">View projects</a>
+        <a hlmBtn variant="ghost" size="sm" routerLink="/projects">View projects</a>
       </div>
     </section>
   `,

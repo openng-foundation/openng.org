@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
 
 export const routeMeta: RouteMeta = {
   title: 'Contact Us',
@@ -14,7 +15,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, HlmButtonImports],
   template: `
     <div class="hero bg-base-200">
       <div class="hero-content py-12 text-center">
@@ -55,7 +56,7 @@ export const routeMeta: RouteMeta = {
               newcomers, depending on the project.
             </p>
             <div class="card-actions justify-end">
-              <a class="btn btn-sm" routerLink="/community/get-involved">
+              <a hlmBtn size="sm" routerLink="/community/get-involved">
                 Get involved
               </a>
             </div>
@@ -70,7 +71,7 @@ export const routeMeta: RouteMeta = {
               Share it with us with a new GitHub discussion.
             </p>
             <div class="card-actions justify-end">
-              <a class="btn btn-sm" href="https://github.com/openng-foundation/openng.org/discussions" target="_blank" rel="noopener noreferrer">
+              <a hlmBtn size="sm" href="https://github.com/openng-foundation/openng.org/discussions" target="_blank" rel="noopener noreferrer">
                 Suggest a project
               </a>
             </div>
@@ -87,7 +88,8 @@ export const routeMeta: RouteMeta = {
           </p>
           <div class="card-actions">
             <a
-              class="btn btn-sm"
+              hlmBtn
+              size="sm"
               routerLink="/blog/openng-foundation-announcement"
             >
               Read the announcement

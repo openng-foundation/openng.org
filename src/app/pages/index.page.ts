@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
 
 export const routeMeta: RouteMeta = {
   title: 'OpenNG Foundation',
@@ -14,7 +15,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, HlmButtonImports],
   template: `
     <div class="hero bg-base-200">
       <div class="hero-content py-16 text-center">
@@ -28,12 +29,13 @@ export const routeMeta: RouteMeta = {
             with maintainers, and support the wider Angular OSS ecosystem.
           </p>
           <div class="flex flex-wrap justify-center gap-3">
-            <a class="btn btn-neutral" routerLink="/about">Our mission</a>
-            <a class="btn btn-ghost" routerLink="/community/get-involved">
+            <a hlmBtn routerLink="/about">Our mission</a>
+            <a hlmBtn variant="ghost" routerLink="/community/get-involved">
               Get involved
             </a>
             <a
-              class="btn btn-ghost gap-2"
+              hlmBtn
+              variant="ghost"
               href="https://github.com/openng-foundation"
               target="_blank"
               rel="noopener noreferrer"
@@ -106,7 +108,7 @@ export const routeMeta: RouteMeta = {
               standards.
             </p>
             <div class="card-actions">
-              <button class="btn btn-sm btn-disabled" disabled>Upcoming</button>
+              <button hlmBtn size="sm" disabled>Upcoming</button>
             </div>
           </div>
         </div>
