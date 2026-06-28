@@ -1,6 +1,20 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { lucideGithub } from '@ng-icons/lucide';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
+import { HlmCardImports } from '@spartan-ng/helm/card';
+import { PageHeroComponent } from '../components/page-hero';
+
+interface Priority {
+  title: string;
+  description: string;
+  link?: {
+    label: string;
+    routerLink: string;
+  };
+}
 
 export const routeMeta: RouteMeta = {
   title: 'OpenNG Foundation',
@@ -14,102 +28,95 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  imports: [RouterLink],
+  imports: [
+    RouterLink,
+    NgIcon,
+    HlmButtonImports,
+    HlmCardImports,
+    PageHeroComponent,
+  ],
+  providers: [provideIcons({ lucideGithub })],
   template: `
-    <div class="hero bg-base-200">
-      <div class="hero-content py-16 text-center">
-        <div class="max-w-3xl">
-          <h1 class="text-4xl font-bold lg:text-5xl">
-            Keeping Angular open source sustainable
-          </h1>
-          <p class="py-6 text-lg text-base-content/70">
-            OpenNG is a community hub that helps where it is needed most, on
-            the maintenance effort. We revive abandoned projects, connect them
-            with maintainers, and support the wider Angular OSS ecosystem.
-          </p>
-          <div class="flex flex-wrap justify-center gap-3">
-            <a class="btn btn-neutral" routerLink="/about">Our mission</a>
-            <a class="btn btn-ghost" routerLink="/community/get-involved">
-              Get involved
-            </a>
-            <a
-              class="btn btn-ghost gap-2"
-              href="https://github.com/openng-foundation"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-5"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
-                />
-              </svg>
-              GitHub
-            </a>
-          </div>
-        </div>
+    <app-page-hero
+      size="large"
+      title="Keeping Angular open source sustainable"
+      description="OpenNG is a community hub that helps where it is needed most, on the maintenance effort. We revive abandoned projects, connect them with maintainers, and support the wider Angular OSS ecosystem."
+    >
+      <div class="flex flex-wrap justify-center gap-3">
+        <a hlmBtn routerLink="/about">Our mission</a>
+        <a hlmBtn variant="ghost" routerLink="/community/get-involved">
+          Get involved
+        </a>
+        <a
+          hlmBtn
+          variant="ghost"
+          href="https://github.com/openng-foundation"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ng-icon name="lucideGithub" />
+          GitHub
+        </a>
       </div>
-    </div>
+    </app-page-hero>
 
     <section class="mx-auto max-w-5xl px-4 py-16 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-3xl font-semibold">Where we act</h2>
-        <p class="mt-4 text-base-content/70 leading-7">
+        <p class="mt-4 text-muted-foreground leading-7">
           We step in when maintenance has stalled and the community still depends on a project.
         </p>
       </div>
 
       <div class="mt-12 grid gap-6 md:grid-cols-3">
-        <div class="card bg-base-100 shadow-sm">
-          <div class="card-body gap-3">
-            <h3 class="card-title text-lg">Revive abandoned projects</h3>
-            <p class="text-base-content/70">
+        <section hlmCard>
+          <div hlmCardHeader>
+            <h3 hlmCardTitle>Revive abandoned projects</h3>
+          </div>
+          <div hlmCardContent>
+            <p class="text-muted-foreground">
               When maintainers disappear, critical tooling should not vanish
               with them. We help bring projects back to a healthy, maintained
               state.
             </p>
-            <div class="card-actions">
-              <a class="link link-neutral" routerLink="/projects">View projects</a>
-            </div>
           </div>
-        </div>
+          <div hlmCardFooter>
+            <a hlmBtn variant="link" routerLink="/projects">View projects</a>
+          </div>
+        </section>
 
-        <div class="card bg-base-100 shadow-sm">
-          <div class="card-body gap-3">
-            <h3 class="card-title text-lg">Find maintainers</h3>
-            <p class="text-base-content/70">
+        <section hlmCard>
+          <div hlmCardHeader>
+            <h3 hlmCardTitle>Find maintainers</h3>
+          </div>
+          <div hlmCardContent>
+            <p class="text-muted-foreground">
               Maintenance is a lonely journey. We connect projects with people
               willing to carry them forward.
             </p>
-            <div class="card-actions">
-              <a
-                class="link link-neutral"
-                routerLink="/community/maintainer-candidates"
-              >
-                Onboarding rules
-              </a>
-            </div>
           </div>
-        </div>
+          <div hlmCardFooter>
+            <a hlmBtn variant="link" routerLink="/community/maintainer-candidates">
+              Onboarding rules
+            </a>
+          </div>
+        </section>
 
-        <div class="card bg-base-100 shadow-sm">
-          <div class="card-body gap-3">
-            <h3 class="card-title text-lg">Support the ecosystem</h3>
-            <p class="text-base-content/70">
+        <section hlmCard>
+          <div hlmCardHeader>
+            <h3 hlmCardTitle>Support the ecosystem</h3>
+          </div>
+          <div hlmCardContent>
+            <p class="text-muted-foreground">
               Beyond our own projects, we help promote quality OSS, connect
               libraries with contributors, and raise the bar on open-source
               standards.
             </p>
-            <div class="card-actions">
-              <button class="btn btn-sm btn-disabled" disabled>Upcoming</button>
-            </div>
           </div>
-        </div>
+          <div hlmCardFooter>
+            <button hlmBtn size="sm" disabled>Upcoming</button>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -117,119 +124,61 @@ export const routeMeta: RouteMeta = {
       <div class="mx-auto max-w-5xl px-4 py-16 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="text-3xl font-semibold">Our priorities</h2>
-          <p class="mt-4 text-base-content/70 leading-7">
+          <p class="mt-4 text-muted-foreground leading-7">
             OpenNG is in an early stage, and we are building in phases. Here is what we are
             focused on now and what comes next.
           </p>
         </div>
 
-        <ul class="timeline timeline-vertical mt-12 w-full">
-          <li>
-            <div class="timeline-start timeline-box mb-10 w-full text-base">
-              <h3 class="font-semibold">Foundation and first cohort</h3>
-              <p class="py-2 text-base-content/70">
-                Launch this site with our mission, set up GitHub Discussions,
-                and maintain the
+        <ol class="mx-auto mt-12 flex max-w-2xl list-decimal flex-col gap-6 pl-6">
+          @for (item of priorities; track item.title) {
+            <li class="ps-2">
+              <h3 class="font-semibold">{{ item.title }}</h3>
+              <p class="mt-1 text-muted-foreground leading-7">
+                {{ item.description }}
+              </p>
+              @if (item.link) {
                 <a
-                  class="link link-primary"
-                  routerLink="/blog/first-cohort-selected-repositories"
+                  hlmBtn
+                  variant="link"
+                  class="mt-1 h-auto px-0"
+                  [routerLink]="item.link.routerLink"
                 >
-                  first cohort
+                  {{ item.link.label }}
                 </a>
-                of six libraries.
-              </p>
-            </div>
-            <div class="timeline-middle">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <hr />
-          </li>
-          <li>
-            <hr />
-            <div class="timeline-end timeline-box mb-10 w-full text-base">
-              <h3 class="font-semibold">Beyond the first cohort</h3>
-              <p class="py-2 text-base-content/70">
-                Keep evaluating other abandoned Angular libraries that the
-                community still relies on.
-              </p>
-            </div>
-            <div class="timeline-middle">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <hr />
-          </li>
-          <li>
-            <hr />
-            <div class="timeline-start timeline-box mb-10 w-full text-base">
-              <h3 class="font-semibold">Help the wider ecosystem</h3>
-              <p class="py-2 text-base-content/70">
-                Identify ways to help the wider Angular open-source ecosystem.
-              </p>
-            </div>
-            <div class="timeline-middle">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <hr />
-          </li>
-          <li>
-            <hr />
-            <div class="timeline-middle">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <div class="timeline-end timeline-box w-full text-base">
-              <h3 class="font-semibold">Sponsorship</h3>
-              <p class="py-2 text-base-content/70">
-                Find sponsors to fund maintenance work and governance costs.
-              </p>
-            </div>
-          </li>
-        </ul>
+              }
+            </li>
+          }
+        </ol>
       </div>
     </section>
   `,
 })
-export default class Home {}
+export default class Home {
+  readonly priorities: Priority[] = [
+    {
+      title: 'Foundation and first cohort',
+      description:
+        'Launch this site with our mission, set up GitHub Discussions, and maintain the first cohort of six libraries.',
+      link: {
+        label: 'Read about the first cohort',
+        routerLink: '/blog/first-cohort-selected-repositories',
+      },
+    },
+    {
+      title: 'Beyond the first cohort',
+      description:
+        'Keep evaluating other abandoned Angular libraries that the community still relies on.',
+    },
+    {
+      title: 'Help the wider ecosystem',
+      description:
+        'Identify ways to help the wider Angular open-source ecosystem.',
+    },
+    {
+      title: 'Sponsorship',
+      description:
+        'Find sponsors to fund maintenance work and governance costs.',
+    },
+  ];
+}

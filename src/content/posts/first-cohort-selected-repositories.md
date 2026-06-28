@@ -1,7 +1,7 @@
 ---
 title: First cohort of selected repositories
 slug: first-cohort-selected-repositories
-description: OpenNG announces the first six ngneat libraries we will maintain, and how we chose them.
+description: OpenNG announces the first seven ngneat libraries we will maintain, and how we chose them.
 publishedAt: 2026-06-20
 author: OpenNG Foundation
 ---
@@ -14,9 +14,24 @@ Since [introducing OpenNG](/blog/openng-foundation-announcement), we have been w
 - [ngneat/spectator](https://github.com/ngneat/spectator), a testing library that simplifies Angular component tests
 - [ngneat/query](https://github.com/ngneat/query), TanStack Query bindings for Angular
 - [ngneat/elf](https://github.com/ngneat/elf), a reactive, immutable state management library
-- [ngneat/until-destroy](https://github.com/ngneat/until-destroy), automatic subscription cleanup for Angular components
 
-These six libraries represent a cross-section of the former ngneat ecosystem, from testing and data fetching to state management and developer ergonomics. Each one still has a meaningful user base and a gap where ongoing maintenance stopped.
+These four libraries represent a cross-section of the former ngneat ecosystem, from testing and data fetching to state management. Each one still has a meaningful user base and a gap where ongoing maintenance stopped.
+
+### Best-effort maintenance
+
+Two additional libraries are included in this cohort under a different maintenance model:
+
+- [ngneat/until-destroy](https://github.com/ngneat/until-destroy), automatic subscription cleanup for Angular components
+- [ngneat/falso](https://github.com/ngneat/falso), a library for generating fake data in tests and development
+
+For these projects, OpenNG will provide **best-effort** maintenance aimed at keeping existing consumers unblocked. That means targeted fixes, compatibility updates, and security patches where needed, not a long-term roadmap of new features. For **until-destroy**, the focus is supporting existing Angular applications through **v22**. For **falso**, the focus is keeping the library usable for projects that still depend on it today.
+
+We also want to be direct about the exit path. These libraries solved real problems when they were widely adopted, but the ecosystem has moved on:
+
+- **until-destroy** consumers should plan to adopt [modern Angular subscription patterns](https://angular.dev/guide/components/lifecycle#unsubscribing-with-takeuntildestroyed) (`takeUntilDestroyed`, `DestroyRef`, and related APIs) rather than relying on the decorator long term
+- **falso** consumers should migrate to [Faker.js](https://fakerjs.dev/) for fake data generation
+
+If you depend on either library today, we will do our best to keep it working through v22. After that, we encourage you to move to these alternatives and treat the ngneat packages as transitional support, not a permanent foundation.
 
 ## How we selected them
 
@@ -27,7 +42,7 @@ For this first cohort, the criteria were straightforward:
 1. **Community impact**, libraries with broad adoption across the Angular ecosystem, not niche experiments
 2. **Clear maintenance gap**, projects where issues piled up, releases stopped, and no successor was in sight after ngneat went offline
 3. **A realistic path forward**, codebases we can assess, test, and bring back to a healthy state without fragmenting the ecosystem through unnecessary forks
-4. **Shared origin**, all six come from the same former organization, which lets us coordinate maintenance, tooling, and release practices from day one
+4. **Shared origin**, all seven come from the same former organization, which lets us coordinate maintenance, tooling, and release practices from day one
 
 We also weighed practical factors: existing test coverage, CI setup, documentation quality, and how tightly each library couples to current Angular versions. Projects that met the bar on impact and need, but needed the most urgent attention, rose to the top.
 

@@ -2,8 +2,10 @@ import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
-
+import { HlmButtonImports } from '@spartan-ng/helm/button';
+import { HlmCardImports } from '@spartan-ng/helm/card';
 import { injectBlogPosts } from '../../blog/post-attributes';
+import { PageHeroComponent } from '../../components/page-hero';
 
 export const routeMeta: RouteMeta = {
   title: 'Blog',
@@ -17,52 +19,53 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  imports: [DatePipe, RouterLink],
+  imports: [
+    DatePipe,
+    RouterLink,
+    HlmButtonImports,
+    HlmCardImports,
+    PageHeroComponent,
+  ],
   template: `
-    <div class="hero bg-base-200">
-      <div class="hero-content py-12 text-center">
-        <div class="max-w-2xl">
-          <h1 class="text-4xl font-bold">Blog</h1>
-          <p class="py-4 text-base-content/70">
-            News and updates from the OpenNG Foundation.
-          </p>
-        </div>
-      </div>
-    </div>
+    <app-page-hero
+      title="Blog"
+      description="News and updates from the OpenNG Foundation."
+    />
 
     <section class="mx-auto max-w-4xl px-4 py-12 lg:px-8">
       <div class="grid gap-6">
         @for (post of posts; track post.slug) {
-          <article class="card bg-base-100 shadow-sm">
-            <div class="card-body gap-3">
-              <div class="text-sm text-base-content/60">
+          <article hlmCard>
+            <div hlmCardHeader>
+              <p class="text-sm text-muted-foreground">
                 {{ post.attributes.publishedAt | date: 'longDate' }}
-              </div>
-              <h2 class="card-title text-2xl">
+              </p>
+              <h2 hlmCardTitle class="text-2xl">
                 <a
-                  class="link link-hover"
+                  class="hover:underline"
                   [routerLink]="['/blog', post.attributes.slug]"
                 >
                   {{ post.attributes.title }}
                 </a>
               </h2>
-              <p class="text-base-content/70">
+            </div>
+            <div hlmCardContent>
+              <p class="text-muted-foreground">
                 {{ post.attributes.description }}
               </p>
-              <div class="card-actions justify-end">
-                <a
-                  class="btn btn-sm"
-                  [routerLink]="['/blog', post.attributes.slug]"
-                >
-                  Read more
-                </a>
-              </div>
+            </div>
+            <div hlmCardFooter class="justify-end">
+              <a
+                hlmBtn
+                size="sm"
+                [routerLink]="['/blog', post.attributes.slug]"
+              >
+                Read more
+              </a>
             </div>
           </article>
         } @empty {
-          <div class="alert">
-            <span>No posts published yet.</span>
-          </div>
+          <p class="text-muted-foreground">No posts published yet.</p>
         }
       </div>
     </section>

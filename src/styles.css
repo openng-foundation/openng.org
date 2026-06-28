@@ -1,67 +1,127 @@
-@import 'tailwindcss';
-@plugin "daisyui" {
-  themes: light --default;
-}
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css';
+
+@import "@spartan-ng/brain/hlm-tailwind-preset.css";
 @import 'prismjs/themes/prism.css';
 
 @theme {
-  --font-montserrat: Montserrat, ui-sans-serif, system-ui, sans-serif;
+--font-montserrat: Montserrat, ui-sans-serif, system-ui, sans-serif;
 }
 
 .blog-content :is(h2, h3, h4) {
-  @apply mt-8 mb-3 font-semibold;
+@apply mt-8 mb-3 font-semibold;
 }
 
 .blog-content h2 {
-  @apply text-2xl;
+@apply text-2xl;
 }
 
 .blog-content h3 {
-  @apply text-xl;
+@apply text-xl;
 }
 
 .blog-content p {
-  @apply mb-4;
+@apply mb-4;
 }
 
 .blog-content a {
-  @apply link link-primary;
+@apply font-medium text-primary underline-offset-4 hover:underline;
 }
 
 .blog-content ul {
-  @apply mb-4 list-disc pl-6;
+@apply mb-4 list-disc pl-6;
 }
 
 .blog-content ol {
-  @apply mb-4 list-decimal pl-6;
-}
-
-/* Close horizontal menu dropdowns when focus and hover leave the details element */
-.navbar .menu-horizontal > li > details[open]:not(:focus-within):not(:hover) > ul {
-  opacity: 0;
-  scale: 95%;
-  pointer-events: none;
-}
-
-.navbar .menu-horizontal > li > details[open]:not(:focus-within):not(:hover) > summary::after {
-  translate: 0 -1px;
-  rotate: -135deg;
-}
-
-.navbar .menu-horizontal > li > details[open]:not(:focus-within):not(:hover)::details-content {
-  block-size: 0;
+@apply mb-4 list-decimal pl-6;
 }
 
 /* You can add global styles to this file, and also import other style files */
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+font-size: 16px;
+line-height: 24px;
+font-weight: 400;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+font-synthesis: none;
+text-rendering: optimizeLegibility;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-text-size-adjust: 100%;
+}
+
+:root {
+color-scheme: light;
+
+--font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+--radius: 0.625rem;
+--background: oklch(1 0 0);
+--foreground: oklch(0.145 0 0);
+--card: oklch(1 0 0);
+--card-foreground: oklch(0.145 0 0);
+--popover: oklch(1 0 0);
+--popover-foreground: oklch(0.145 0 0);
+--primary: oklch(0.205 0 0);
+--primary-foreground: oklch(0.985 0 0);
+--secondary: oklch(0.97 0 0);
+--secondary-foreground: oklch(0.205 0 0);
+--muted: oklch(0.97 0 0);
+--muted-foreground: oklch(0.556 0 0);
+--accent: oklch(0.97 0 0);
+--accent-foreground: oklch(0.205 0 0);
+--destructive: oklch(0.577 0.245 27.325);
+--border: oklch(0.922 0 0);
+--input: oklch(0.922 0 0);
+--ring: oklch(0.708 0 0);
+--sidebar: oklch(0.985 0 0);
+--sidebar-foreground: oklch(0.145 0 0);
+--sidebar-primary: oklch(0.205 0 0);
+--sidebar-primary-foreground: oklch(0.985 0 0);
+--sidebar-accent: oklch(0.97 0 0);
+--sidebar-accent-foreground: oklch(0.205 0 0);
+--sidebar-border: oklch(0.922 0 0);
+--sidebar-ring: oklch(0.708 0 0);
+}
+
+:root.dark {
+color-scheme: dark;
+
+--background: oklch(0.145 0 0);
+--foreground: oklch(0.985 0 0);
+--card: oklch(0.205 0 0);
+--card-foreground: oklch(0.985 0 0);
+--popover: oklch(0.205 0 0);
+--popover-foreground: oklch(0.985 0 0);
+--primary: oklch(0.922 0 0);
+--primary-foreground: oklch(0.205 0 0);
+--secondary: oklch(0.269 0 0);
+--secondary-foreground: oklch(0.985 0 0);
+--muted: oklch(0.269 0 0);
+--muted-foreground: oklch(0.708 0 0);
+--accent: oklch(0.269 0 0);
+--accent-foreground: oklch(0.985 0 0);
+--destructive: oklch(0.704 0.191 22.216);
+--border: oklch(1 0 0 / 10%);
+--input: oklch(1 0 0 / 15%);
+--ring: oklch(0.556 0 0);
+--sidebar: oklch(0.205 0 0);
+--sidebar-foreground: oklch(0.985 0 0);
+--sidebar-primary: oklch(0.985 0 0);
+--sidebar-primary-foreground: oklch(0.205 0 0);
+--sidebar-accent: oklch(0.269 0 0);
+--sidebar-accent-foreground: oklch(0.985 0 0);
+--sidebar-border: oklch(1 0 0 / 10%);
+--sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+* {
+@apply border-border outline-ring/50;
+}
+body {
+@apply bg-background text-foreground;
+}
 }

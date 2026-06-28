@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => ({
   },
   resolve: {
     mainFields: ['module'],
+    tsconfigPaths: true,
   },
   plugins: [
     analog({

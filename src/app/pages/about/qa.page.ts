@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
+import { HlmAccordionImports } from '@spartan-ng/helm/accordion';
+import { PageHeroComponent } from '../../components/page-hero';
 
 export const routeMeta: RouteMeta = {
   title: 'Q&A',
@@ -13,35 +16,24 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
+  imports: [HlmAccordionImports, PageHeroComponent],
   template: `
-    <div class="hero bg-base-200">
-      <div class="hero-content py-12 text-center">
-        <div class="max-w-2xl">
-          <h1 class="text-4xl font-bold">Q&amp;A</h1>
-          <p class="py-4 text-base-content/70">
-            Answers to common questions about OpenNG and how we help the Angular
-            open-source ecosystem.
-          </p>
-        </div>
-      </div>
-    </div>
+    <app-page-hero
+      title="Q&amp;A"
+      description="Answers to common questions about OpenNG and how we help the Angular open-source ecosystem."
+    />
 
     <section class="mx-auto max-w-3xl px-4 py-12 lg:px-8">
-      <div class="join join-vertical w-full">
+      <hlm-accordion type="single">
         @for (item of faqItems; track item.question; let first = $first) {
-          <div class="collapse collapse-arrow join-item border border-base-300 bg-base-100">
-            <input
-              type="radio"
-              name="faq-accordion"
-              [checked]="first"
-            />
-            <div class="collapse-title font-semibold">{{ item.question }}</div>
-            <div class="collapse-content text-base-content/80 leading-7">
-              <p>{{ item.answer }}</p>
-            </div>
-          </div>
+          <hlm-accordion-item [isOpened]="first">
+            <hlm-accordion-trigger>{{ item.question }}</hlm-accordion-trigger>
+            <hlm-accordion-content>
+              <p class="text-muted-foreground leading-7">{{ item.answer }}</p>
+            </hlm-accordion-content>
+          </hlm-accordion-item>
         }
-      </div>
+      </hlm-accordion>
     </section>
   `,
 })

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
+import { HlmCardImports } from '@spartan-ng/helm/card';
+import { PageHeroComponent } from '../../components/page-hero';
 
 export const routeMeta: RouteMeta = {
   title: 'About',
@@ -14,24 +17,17 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, HlmButtonImports, HlmCardImports, PageHeroComponent],
   template: `
-    <div class="hero bg-base-200">
-      <div class="hero-content py-12 text-center">
-        <div class="max-w-2xl">
-          <h1 class="text-4xl font-bold">About OpenNG Foundation</h1>
-          <p class="py-4 text-base-content/70">
-            A community hub for sustainable maintenance in the Angular
-            open-source ecosystem.
-          </p>
-        </div>
-      </div>
-    </div>
+    <app-page-hero
+      title="About OpenNG Foundation"
+      description="A community hub for sustainable maintenance in the Angular open-source ecosystem."
+    />
 
-    <section class="mx-auto max-w-3xl space-y-10 px-4 py-12 lg:px-8">
-      <div class="space-y-4">
+    <section class="mx-auto flex max-w-3xl flex-col gap-10 px-4 py-12 lg:px-8">
+      <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-semibold">Our mission</h2>
-        <p class="text-base-content/80 leading-7">
+        <p class="text-muted-foreground leading-7">
           OpenNG is a global organization dedicated to helping the Angular
           open-source ecosystem thrive. We focus on the maintenance effort,
           reviving abandoned projects, connecting them with maintainers, and
@@ -39,9 +35,9 @@ export const routeMeta: RouteMeta = {
         </p>
       </div>
 
-      <div class="space-y-4">
+      <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-semibold">What we are not</h2>
-        <p class="text-base-content/80 leading-7">
+        <p class="text-muted-foreground leading-7">
           We are not here to take over every library by forking it, and we do
           not act as if we know better than existing maintainers. We step in
           when maintenance has stalled and the community still depends on a
@@ -49,14 +45,14 @@ export const routeMeta: RouteMeta = {
         </p>
       </div>
 
-      <div class="space-y-4">
+      <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-semibold">Why we exist</h2>
-        <p class="text-base-content/80 leading-7">
+        <p class="text-muted-foreground leading-7">
           Many open-source projects do not fail because the idea was bad. They
           fail because maintaining them is a lonely journey, and finding a
           successor is incredibly difficult.
         </p>
-        <p class="text-base-content/80 leading-7">
+        <p class="text-muted-foreground leading-7">
           The disappearance of the ngneat organization from GitHub was the
           trigger for OpenNG, an idea that had been forming for a while. When
           widely used libraries vanish overnight, the whole Angular community
@@ -64,9 +60,9 @@ export const routeMeta: RouteMeta = {
         </p>
       </div>
 
-      <div class="space-y-4">
+      <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-semibold">How we work</h2>
-        <p class="text-base-content/80 leading-7">
+        <p class="text-muted-foreground leading-7">
           OpenNG acts as a community hub rather than a single-person
           organization. That approach makes it easier to find sponsors, share
           governance responsibilities, and direct support where it is needed
@@ -75,21 +71,21 @@ export const routeMeta: RouteMeta = {
         </p>
       </div>
 
-      <div class="space-y-4">
+      <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-semibold">Our priorities</h2>
-        <ol class="list-decimal space-y-3 pl-6 text-base-content/80 leading-7">
-          <li>
+        <ol class="list-decimal pl-6 text-muted-foreground leading-7">
+          <li class="mb-3">
             Launch this site, set up GitHub Discussions, and maintain the
             <a
-              class="link link-primary"
+              class="font-medium text-primary underline-offset-4 hover:underline"
               routerLink="/blog/first-cohort-selected-repositories"
             >
               first cohort
             </a>
             of selected ngneat repositories
           </li>
-          <li>Keep evaluating other abandoned Angular projects beyond the first cohort</li>
-          <li>
+          <li class="mb-3">Keep evaluating other abandoned Angular projects beyond the first cohort</li>
+          <li class="mb-3">
             Help the wider ecosystem, promoting quality projects and
             connecting them with contributors and maintainers
           </li>
@@ -100,29 +96,34 @@ export const routeMeta: RouteMeta = {
         </ol>
       </div>
 
-      <div class="card bg-base-100 shadow-sm">
-        <div class="card-body gap-4">
-          <h2 class="card-title text-xl">Read the announcement</h2>
-          <p class="text-base-content/70">
+      <section hlmCard>
+        <div hlmCardHeader>
+          <h2 hlmCardTitle>Read the announcement</h2>
+        </div>
+        <div hlmCardContent>
+          <p class="text-muted-foreground">
             Learn more about how the foundation got started and what comes
             next.
           </p>
-          <div class="card-actions">
-            <a
-              class="btn btn-sm"
-              routerLink="/blog/openng-foundation-announcement"
-            >
-              Introducing the OpenNG Foundation
-            </a>
-            <a
-              class="btn btn-sm btn-ghost"
-              routerLink="/blog/first-cohort-selected-repositories"
-            >
-              First cohort announcement
-            </a>
-          </div>
         </div>
-      </div>
+        <div hlmCardFooter class="gap-2">
+          <a
+            hlmBtn
+            size="sm"
+            routerLink="/blog/openng-foundation-announcement"
+          >
+            Introducing the OpenNG Foundation
+          </a>
+          <a
+            hlmBtn
+            variant="ghost"
+            size="sm"
+            routerLink="/blog/first-cohort-selected-repositories"
+          >
+            First cohort announcement
+          </a>
+        </div>
+      </section>
     </section>
   `,
 })

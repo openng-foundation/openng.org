@@ -1,11 +1,11 @@
 {
   "version": 1,
   "skills": {
-    "daisyui": {
-      "source": "saadeghi/daisyui",
+    "spartan": {
+      "source": "spartan-ng/spartan",
       "sourceType": "github",
-      "skillPath": "skills/daisyui/SKILL.md",
-      "computedHash": "a98221a5c8f50bfb0dbaf4d0e52982598981bc5e472806814e118ee7df2a9712"
+      "skillPath": "skills/spartan/SKILL.md",
+      "computedHash": "126d1eba31bef1c33c37ce3675bc20d0e74a5c2f42625d7837d5c8fae25234e5"
     }
   }
 }

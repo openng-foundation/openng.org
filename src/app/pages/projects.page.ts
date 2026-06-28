@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
+import { HlmButtonImports } from '@spartan-ng/helm/button';
+import { HlmCardImports } from '@spartan-ng/helm/card';
+import { PageHeroComponent } from '../components/page-hero';
 
 export const routeMeta: RouteMeta = {
   title: 'Projects',
@@ -14,37 +17,32 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, HlmButtonImports, HlmCardImports, PageHeroComponent],
   template: `
-    <div class="hero bg-base-200">
-      <div class="hero-content py-12 text-center">
-        <div class="max-w-2xl">
-          <h1 class="text-4xl font-bold">Projects</h1>
-          <p class="py-4 text-base-content/70">
-            Libraries we are reviving and maintaining for the Angular community.
-            All Foundation repositories live on
-            <a
-              class="link link-primary"
-              href="https://github.com/openng-foundation"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>.
-          </p>
-        </div>
-      </div>
-    </div>
+    <app-page-hero title="Projects">
+      <p class="py-4 text-muted-foreground">
+        Libraries we are reviving and maintaining for the Angular community.
+        All Foundation repositories live on
+        <a
+          class="font-medium text-primary underline-offset-4 hover:underline"
+          href="https://github.com/openng-foundation"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>.
+      </p>
+    </app-page-hero>
 
-    <section class="mx-auto max-w-4xl space-y-10 px-4 py-12 lg:px-8">
-      <div class="space-y-4">
+    <section class="mx-auto flex max-w-4xl flex-col gap-10 px-4 py-12 lg:px-8">
+      <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-semibold">First cohort</h2>
-        <p class="text-base-content/80 leading-7">
+        <p class="text-muted-foreground leading-7">
           We do not fork every abandoned library, we step in where maintenance
           has stalled and the community still depends on the project. Our first
           step is maintaining the
           <a
-            class="link link-primary"
+            class="font-medium text-primary underline-offset-4 hover:underline"
             routerLink="/blog/first-cohort-selected-repositories"
           >
             first cohort
@@ -52,11 +50,11 @@ export const routeMeta: RouteMeta = {
           of six ngneat libraries selected for revival, from testing and data
           fetching to state management and developer ergonomics.
         </p>
-        <p class="text-base-content/80 leading-7">
+        <p class="text-muted-foreground leading-7">
           As repositories move under Foundation stewardship, all Foundation
           libraries will be published under the
           <a
-            class="link link-primary"
+            class="font-medium text-primary underline-offset-4 hover:underline"
             href="https://www.npmjs.com/org/openng"
             target="_blank"
             rel="noopener noreferrer"
@@ -70,38 +68,34 @@ export const routeMeta: RouteMeta = {
 
       <div class="grid gap-6">
         @for (project of firstCohort; track project.repo) {
-          <div class="card bg-base-100 shadow-sm">
-            <div class="card-body gap-4 text-base">
-                <h2 class="card-title text-xl">{{ project.name }}</h2>
-              <p class="text-base-content/70">{{ project.description }}</p>
-              <!--
-              <div class="card-actions">
-                <a
-                  class="btn btn-sm"
-                  [href]="'https://github.com/' + project.repo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View on GitHub
-                </a>
-              </div>
-        -->
+          <section hlmCard>
+            <div hlmCardHeader>
+              <h2 hlmCardTitle>{{ project.name }}</h2>
             </div>
-          </div>
+            <div hlmCardContent>
+              <p class="text-muted-foreground">{{ project.description }}</p>
+            </div>
+          </section>
         }
       </div>
 
-      <div class="space-y-4">
+      <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-semibold">Coming next</h2>
-        <p class="text-base-content/80 leading-7">
+        <p class="text-muted-foreground leading-7">
           Once the first cohort is on stable footing, we will keep evaluating
           other abandoned Angular projects. Know a library that needs a new
           home? Read our
-          <a class="link link-primary" routerLink="/community/project-intake">
+          <a
+            class="font-medium text-primary underline-offset-4 hover:underline"
+            routerLink="/community/project-intake"
+          >
             project intake criteria
           </a>
           or
-          <a class="link link-primary" routerLink="/about/contact">
+          <a
+            class="font-medium text-primary underline-offset-4 hover:underline"
+            routerLink="/about/contact"
+          >
             get in touch
           </a>.
         </p>
@@ -109,17 +103,18 @@ export const routeMeta: RouteMeta = {
 
       <div class="flex flex-wrap gap-3">
         <a
-          class="btn btn-sm"
+          hlmBtn
+          size="sm"
           href="https://github.com/openng-foundation"
           target="_blank"
           rel="noopener noreferrer"
         >
           OpenNG on GitHub
         </a>
-        <a class="btn btn-sm btn-ghost" routerLink="/community/get-involved">
+        <a hlmBtn variant="ghost" size="sm" routerLink="/community/get-involved">
           Get involved
         </a>
-        <a class="btn btn-sm btn-ghost" routerLink="/about/governance">
+        <a hlmBtn variant="ghost" size="sm" routerLink="/about/governance">
           How we govern
         </a>
       </div>
